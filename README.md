@@ -6,7 +6,7 @@
 Este sistema é uma aplicação web funcional de gerenciamento de tarefas (To-Do List). O projeto foi desenvolvido com foco no ciclo de vida de desenvolvimento moderno, aplicando conceitos práticos de controle de versão, containerização e esteiras de automação (CI/CD) para simular o fluxo de trabalho de uma squad de alto desempenho.
 
 ## 🛠️ Tecnologias Utilizadas
-* **Frontend:** HTML5, CSS3 e JavaScript (Vanilla JS)
+* **Frontend:** Framework Angular
 * **Backend:** Node.js com Express
 * **Banco de Dados:** SQLite (Persistência leve em arquivo local)
 * **Containerização:** Docker
