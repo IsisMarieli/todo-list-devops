@@ -1,0 +1,9 @@
+node_modules/
+.env
+
+# Banco de dados local (SQLite)
+*.sqlite
+*.sqlite3
+
+# Arquivos do sistema
+.DS_Store
