@@ -37,6 +37,33 @@ app.post('/todos', (req, res) => {
     });
 });
 
+app.put('/todos/:id', (req, res) => {
+    const { id } = req.params;
+    const { task, completed } = req.body;
+
+    db.run(
+        'UPDATE todos SET task = ?, completed = ? WHERE id = ?',
+        [task, completed, id],
+        function(err) {
+            if (err) return res.status(500).json({ error: err.message });
+            if (this.changes === 0) return res.status(404).json({ error: 'Tarefa não encontrada' });
+            
+            res.json({ id: Number(id), task, completed });
+        }
+    );
+});
+
+app.delete('/todos/:id', (req, res) => {
+    const { id } = req.params;
+
+    db.run('DELETE FROM todos WHERE id = ?', [id], function(err) {
+        if (err) return res.status(500).json({ error: err.message });
+        if (this.changes === 0) return res.status(404).json({ error: 'Tarefa não encontrada' });
+        
+        res.json({ message: 'Tarefa deletada com sucesso', id: Number(id) });
+    });
+});
+
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
 });
